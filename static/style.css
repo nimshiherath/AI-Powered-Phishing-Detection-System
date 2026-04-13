@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;        /* FIX: min-height so page doesn't clip on small screens */
+}
+
+.container {
+    width: 600px;
+    max-width: 90%;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 { text-align: center; font-size: 22px; margin-bottom: 20px; }
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;   /* FIX: prevents textarea overflowing container */
+}
+
+textarea:focus { border-color: #999; }
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover { background-color: #333; }
+
+.result {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.safe    { background-color: #e6f4ea; color: #1e7e34; }
+.phishing { background-color: #fdecea; color: #b02a37; }
+
+.confidence {                           /* NEW */
+    font-weight: normal;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.reasons { margin-top: 10px; font-size: 13px; }
+ul { padding-left: 18px; }

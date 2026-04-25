@@ -8,7 +8,7 @@ app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
-# ---- helpers ----
+
 
 def clean_text(text):
     if not isinstance(text, str):
@@ -28,12 +28,12 @@ SUSPICIOUS_WORDS = [
 
 def check_keywords(text):
     lower = text.lower()
-    return [w for w in SUSPICIOUS_WORDS if w in lower]   # FIX: returns which words, not just True/False
+    return [w for w in SUSPICIOUS_WORDS if w in lower]   # returns which words, not just True/False
 
 def contains_link(text):
-    return bool(re.search(r'http|www\.', text))          # FIX: more precise check
+    return bool(re.search(r'http|www\.', text))          #  more precise check
 
-# ---- route ----
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -44,7 +44,7 @@ def home():
     if request.method == "POST":
         user_input = request.form.get("message", "").strip()
 
-        if not user_input:                                 # FIX: handle empty input
+        if not user_input:                                 #  handle empty input
             return render_template("index.html", error="Please enter a message.")
 
         cleaned = clean_text(user_input)
@@ -52,7 +52,7 @@ def home():
 
         ai_pred = model.predict(vec)[0]
         prob = model.predict_proba(vec)[0]
-        confidence = round(max(prob) * 100, 1)            # NEW: confidence score
+        confidence = round(max(prob) * 100, 1)            #  confidence score
 
         matched_keywords = check_keywords(user_input)
         link_flag = contains_link(user_input)

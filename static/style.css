@@ -5,7 +5,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;        /* FIX: min-height so page doesn't clip on small screens */
+    min-height: 100vh;        /*  min-height so page doesn't clip on small screens */
 }
 
 .container {
@@ -27,7 +27,7 @@ textarea {
     resize: none;
     font-size: 14px;
     outline: none;
-    box-sizing: border-box;   /* FIX: prevents textarea overflowing container */
+    box-sizing: border-box;   /* prevents textarea overflowing container */
 }
 
 textarea:focus { border-color: #999; }
@@ -56,7 +56,7 @@ button:hover { background-color: #333; }
 .safe    { background-color: #e6f4ea; color: #1e7e34; }
 .phishing { background-color: #fdecea; color: #b02a37; }
 
-.confidence {                           /* NEW */
+.confidence {                           
     font-weight: normal;
     font-size: 13px;
     opacity: 0.8;

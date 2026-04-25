@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
 def clean_text(text):
-    if not isinstance(text, str):  # FIX: handles NaN/None rows in CSV
+    if not isinstance(text, str):  #  handles NaN/None rows in CSV
         return ""
     text = text.lower()
     text = re.sub(r'http\S+', '', text)
@@ -17,7 +17,7 @@ def clean_text(text):
     return text
 
 data = pd.read_csv("Phishing_Email.csv")
-data.dropna(subset=['text_combined', 'label'], inplace=True)  # FIX: drop bad rows
+data.dropna(subset=['text_combined', 'label'], inplace=True)  # drop bad rows
 data['text_combined'] = data['text_combined'].apply(clean_text)
 
 vectorizer = TfidfVectorizer(max_features=5000)
